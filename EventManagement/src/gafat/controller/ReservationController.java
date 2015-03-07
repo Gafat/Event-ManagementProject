@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class ReservationController {
+	//update
 	
 @RequestMapping(value="/gez" ,method=RequestMethod.GET)
 
