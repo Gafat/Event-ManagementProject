@@ -1,0 +1,61 @@
+#mainBody {
+    text-align: left;
+    //border: 1px solid #dedede;
+    background: #efe4b0;
+    width: 800px;
+    padding: 20px;
+   
+}
+
+form {
+  font:100% verdana;
+margin-top:10px;
+  width: 800px;
+ // height:300px;
+}
+
+form fieldset {position:relative;
+  border-color:grey;
+  border-width: 3px;
+  margin-left: auto;
+  margin-right:auto;
+}
+
+legend {
+    font-size: 24px;
+    border:1px solid red;
+}
+form input{
+	margin-top:10px;
+}
+form label { 
+    width: 250px;
+  
+    float: left;
+    text-align: right;
+    padding: 2px;
+    margin-top:10px;
+}
+#bottom lable {
+  margin-left: 100px;
+  margin-right:auto;
+  margin-top:20px;
+	
+}
+
+
+#buttons {position:absolute;
+    right:40px;
+    top:0px;
+    width:100px;
+   
+    
+}
+
+#buttons submit{
+    margin-bottom: 20px;
+    padding:20px;
+	width:200px;
+	
+}
+

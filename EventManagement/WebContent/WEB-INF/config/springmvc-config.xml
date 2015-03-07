@@ -24,13 +24,18 @@
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
-    	<bean id="messageSource"
+    	<bean id="errorMessageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basename" value="classpath:errorMessages" />
 	</bean>
+
+    	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="classpath:messages" />
+	</bean>
    <bean id="validator"
 		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
-		<property name="validationMessageSource" ref="messageSource" />
+		<property name="validationMessageSource" ref="errorMessageSource" />
 	</bean>
 	
 		<bean id="conversionService"
