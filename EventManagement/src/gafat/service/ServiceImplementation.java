@@ -16,14 +16,15 @@ public class ServiceImplementation  implements ServiceInterface{
 	@Autowired
 	CarRepositoryInterface carsRepository;
 
-	public Car searchCars(String state) {
+	public ArrayList<Car> searchCars(String state) {
+		ArrayList<Car> listOfCars=new ArrayList<Car>();
 		for(Car car :carsRepository.getAllCars())
 		  if(car.getState().equals(state))	
-			   return car;
+			   listOfCars.add(car);
 		
 		  
 			
-			return null;
+			return listOfCars;
 		
 		
 	}

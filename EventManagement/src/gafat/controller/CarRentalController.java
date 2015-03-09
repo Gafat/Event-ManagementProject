@@ -32,11 +32,11 @@ public class CarRentalController {
 	public String SearchCar( @ModelAttribute("rentalSearch") CarRentalSearch search,Model model)
 	{
 		System.out.println(search.getSearchState());
-//		ArrayList<Car> listOfCars=new ArrayList<Car>();
-//		Car car=service.searchCars(search.getSearchState());
+	ArrayList<Car> listOfCars=service.searchCars(search.getSearchState());
+		//Car car=
 //		listOfCars.add(car);
 //		System.out.println(car.getState());
-//		model.addAttribute("listOfCars", listOfCars);
+  	model.addAttribute("listOfCars", listOfCars);
 		return "carForRent";
 			
 	}
@@ -47,14 +47,17 @@ public class CarRentalController {
 			
 	}
 	@RequestMapping(value={"/addCar"},method=RequestMethod.POST)
-	public String addCar(@Valid @ModelAttribute("car") Car car,BindingResult result,Model model)
+	public String addCar(@Valid @ModelAttribute Car car,BindingResult result, Model model)
 	{
 		if(result.hasErrors())
 		{
+			System.out.println("hello");
 			return "addCarForm";
 		}
+	
+	
 		service.addCar(car);
-		model.addAttribute(car);
+		model.addAttribute("car",car);
 		for(Car c:service.getAllCars())
 	     System.out.println(c.getCompanyName());
 		return "carDetail";

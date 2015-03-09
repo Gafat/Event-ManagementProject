@@ -2,6 +2,7 @@
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
    
     <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -12,6 +13,23 @@
 <title>Insert title here</title>
 </head>
 <body>
+<table border="1"  width="800px">
+<c:forEach var="car" items="${listOfCars}" varStatus="counter">
+<tr>
+<td>img</td>
+ <td>
+ 
+ <c:out value="${car.model}"></c:out>
+ <c:out value="${car.price}"></c:out>
+ <c:out value="${car.numOfPeople}"></c:out>
+ <c:out value="${car.numOfBags}"></c:out>
+ 
 
+</td>
+ <td><a href="">book</a></td>
+</tr>
+</c:forEach>
+</table>
+ 
 </body>
 </html>
