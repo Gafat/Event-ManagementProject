@@ -29,7 +29,7 @@
 			</p>
 			<p>
 				<label for="serviceDescription">Service Description:</label>
-				<form:textarea id="serviceDescription" path="serviceDescription" type="text" />
+				<form:textarea id="serviceDescription" path="serviceDescription" type="text" rows="4" cols="30"/>
 			</p>
 			<p>
 				<label for="street">Street:</label>
@@ -49,7 +49,7 @@
 			</p>
 			<p>
 				<label for="note">Any Notes:</label>
-				<form:input id="note" path="note" type="text" />
+				<form:textarea id="note" path="note" type="text" cols="30" rows="5" />
 			</p>
 			<p>
             <input id="reset" type="reset">

@@ -10,14 +10,15 @@
 <title>Package Setup</title>
 </head>
 <body>
-	<form:form modelAttribute="packages" action="addPackage" method="post">
+	<form:form modelAttribute="packages" action="/addPackage" method="post">
 		<fieldset>
 			<legend>Package Setup</legend>
+			 <form:errors path="*" cssStyle="color : red;" />
 			<p>
 				<label>Events:</label> <select>
 					<option value="weeding">Weeding</option>
 					<option value="birthday">Birthday</option>
-					<option value="Trip">Trip</option>
+					<option value="meeting">Meeting</option>
 				</select>
 
 			</p>
@@ -33,20 +34,20 @@
 
 			</p>
 			<p>
-				<label for="name">Content Name:</label>
-				<form:input id="name" path="name" type="text" />
-			<div style="text-align: center;">
-				<form:errors path="name" cssStyle="color : red;" /> 
+				<label for="ServiceName">Content Name:</label>
+				<form:input id="ServiceName" path="serviceName" type="text" size="50" />
+			<div style="text-align: left;">
+				<form:errors path="serviceName" cssStyle="color : red;" /> 
  			</div>
 			</p>
 			
 			<p>
 				<label for="description">Description:</label>
-				<form:input id="description" path="description" type="text" />
+				<form:textarea id="description" path="description" type="text" rows="5" cols="30" />
 				
-				<div style="text-align: center;">
- 				<form:errors path="description" cssStyle="color : red;" /> 
- 				</div>
+				<div style="text-align: left;">
+				<form:errors path="description" cssStyle="color : red;" /> 
+ 			</div>
 				
 			</p>
 			
@@ -78,6 +79,11 @@
 			</table>
 			</p>
 
+<p id="buttons">
+            <input id="reset" type="reset" tabindex="4">
+            <input id="submit" type="submit" tabindex="5" 
+                value="Continue">
+        </p>
 
 		</fieldset>
 	</form:form>

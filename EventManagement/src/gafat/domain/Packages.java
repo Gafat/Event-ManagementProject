@@ -1,64 +1,80 @@
 package gafat.domain;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Packages {
-	
+
 	@NotNull
-	private String name;
+	@NotEmpty
+	String serviceName;
 	@NotNull
-	private String description;
-	private String packageType;
-	private String priceType;
-	
-	
-	
-	
+	@NotEmpty
+	String description;
+	String packageType;
+	String priceType;
+
 	public Packages() {
-		
+
 	}
+
 	
-	
-	public Packages(String name, String description, String packageType,
+
+	public Packages(String serviceName, String description, String packageType,
 			String priceType) {
-		this.name = name;
+		super();
+		this.serviceName = serviceName;
 		this.description = description;
 		this.packageType = packageType;
 		this.priceType = priceType;
 	}
+
 
 
 	public String getPriceType() {
 		return priceType;
 	}
 
-
 	public void setPriceType(String priceType) {
 		this.priceType = priceType;
 	}
 
+	
 
-	public String getName() {
-		return name;
+	public String getServiceName() {
+		return serviceName;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+
+
+	public void setServiceName(String serviceName) {
+		this.serviceName = serviceName;
 	}
+
+
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 	public String getPackageType() {
 		return packageType;
 	}
+
 	public void setPackageType(String packageType) {
 		this.packageType = packageType;
 	}
-	
-	
-	
 
 }
