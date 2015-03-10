@@ -1,6 +1,6 @@
 package gafat.repository;
 
-import gafat.domain.Packages;
+import gafat.domain.ServiceTypes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository;
 
 
 
-@Repository
-public class PackageSetupRepositoryImp implements PackageSetupRepository {
-	List<Packages> listOfPackages=new ArrayList<Packages>();
+
+public class PackageSetupRepositoryImp {
+	List<ServiceTypes> listOfPackages=new ArrayList<ServiceTypes>();
 	public List<String> getPackageList()
 	{
 		List<String> packageList=new ArrayList<>();
@@ -22,12 +22,12 @@ public class PackageSetupRepositoryImp implements PackageSetupRepository {
 	}
 	
 	
-	public List<Packages> getPackageSetUp(){
+	public List<ServiceTypes> getPackageSetUp(){
 		return listOfPackages;
 		
 	}
 	
-	public void savePackageSetup(Packages pack){
+	public void savePackageSetup(ServiceTypes pack){
 		listOfPackages.add(pack);
 		return ;
 		

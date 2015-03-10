@@ -1,8 +1,8 @@
 package gafat.service;
 
-import gafat.domain.PackagePrice;
+import gafat.domain.PackageServicePrice;
 
 public interface PackagePriceService {
-	public void savePackaagePrice(PackagePrice packagePrice);
+	public void savePackaagePrice(PackageServicePrice packagePrice);
 
 }

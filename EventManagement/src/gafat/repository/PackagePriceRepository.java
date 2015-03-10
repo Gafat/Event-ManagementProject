@@ -1,7 +1,7 @@
 package gafat.repository;
 
-import gafat.domain.PackagePrice;
+import gafat.domain.PackageServicePrice;
 
 public interface PackagePriceRepository {
-	public void savePackaagePrice(PackagePrice packagePrice);
+	public void savePackaagePrice(PackageServicePrice packagePrice);
 }

@@ -1,8 +1,26 @@
 package gafat.domain;
 
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+
+@Entity
 public class ServiceProviders {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
+	@Column(name="COMPANY_NAME")
 	private String companyName;
+	@Column(name="SERVICE_TYPE")
 	private String serviceType;
+	@Column(name="SERVICE_DESCRIPTION")
 	private String serviceDescription;
 	private String street;
 	private String city;
@@ -10,6 +28,9 @@ public class ServiceProviders {
 	private String state;
 	private String note;
 	
+	@OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name="SERVICE_PROVIDER_ID")  
+    private List<PackageServicePrice> packageServicePrice;
 	
 	
 	
@@ -78,6 +99,16 @@ public class ServiceProviders {
 	}
 	public void setNote(String note) {
 		this.note = note;
+	}
+
+
+	public List<PackageServicePrice> getPackageServicePrice() {
+		return packageServicePrice;
+	}
+
+
+	public void setPackageServicePrice(List<PackageServicePrice> packageServicePrice) {
+		this.packageServicePrice = packageServicePrice;
 	}
 	
 	

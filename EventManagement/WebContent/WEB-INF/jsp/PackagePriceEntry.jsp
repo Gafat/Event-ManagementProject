@@ -7,13 +7,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Package Service Price</title>
 </head>
 <body>
 
 	<form:form modelAttribute="packagePrice" action="/addPackagePrice" method="post">
 		<fieldset>
-			<legend>Package Setup</legend>
+			<legend>Package Service Price Entry</legend>
 			<form:errors path="*" cssStyle="color : red;" />
 			<p>
 				<label>Service Providers:</label> <select>

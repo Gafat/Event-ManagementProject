@@ -1,21 +1,13 @@
 package gafat.controller;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 import javax.validation.Valid;
 
-import gafat.domain.PackagePrice;
-import gafat.domain.Packages;
-import gafat.domain.Wedding;
-import gafat.service.PackageSetupService;
+import gafat.domain.PackageServicePrice;
+import gafat.domain.ServiceTypes;
 
-
-
-
-
-
-
+import gafat.service.ServiceTypesService;
 
 
 
@@ -30,30 +22,31 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class PackageSetupController {
 	@Autowired
-	PackageSetupService pkgService;
+	ServiceTypesService pkgService;
 		@RequestMapping(value = {"/abiy","/packageSetup"}, method=RequestMethod.GET)
-	    public String packageSetup(@ModelAttribute("packages") Packages pack) {
+	    public String packageSetup(@ModelAttribute("packages") ServiceTypes pack) {
 			
 			return "PackageSetup";
 		}
 		
 
 		@RequestMapping(value={"/addPackage"})
-		 public String registerWedding(@Valid @ModelAttribute  Packages packages, BindingResult bindingResult,
+		 public String registerWedding(@Valid @ModelAttribute  ServiceTypes packages, BindingResult bindingResult,
 					Model model) 
 		 	{
 				if(bindingResult.hasErrors()){
-					pkgService.savePackageSetup(packages);
+					
 					return "PackageSetup";
 				}
-				model.addAttribute("packagePrice", new PackagePrice());
+				pkgService.save(packages);
+				model.addAttribute("packagePrice", new PackageServicePrice());
 				return "PackagePriceEntry";
 					
 						 
 		 	}
 		
 		@RequestMapping(value = {"/addPackagePrice"}, method=RequestMethod.GET)
-	    public String addPrice(@ModelAttribute("packagePrice") PackagePrice pack) {
+	    public String addPrice(@ModelAttribute("packagePrice") PackageServicePrice pack) {
 			
 			return "PackagePriceEntry";
 		}

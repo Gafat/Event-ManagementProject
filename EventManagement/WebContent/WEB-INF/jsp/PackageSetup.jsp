@@ -15,7 +15,8 @@
 			<legend>Package Setup</legend>
 			 <form:errors path="*" cssStyle="color : red;" />
 			<p>
-				<label>Events:</label> <select>
+				<label>Events:</label> 
+				<select>
 					<option value="weeding">Weeding</option>
 					<option value="birthday">Birthday</option>
 					<option value="meeting">Meeting</option>
@@ -23,7 +24,7 @@
 
 			</p>
 			<p>
-				<label for="package">Packages</label> <select>
+				<label for="package">Packages</label> <select path="packageType">
 					<!--<c:forEach items="${packagesList}" var="package">
 						<option>${package}</option>
 					</c:forEach>-->

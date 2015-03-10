@@ -1,80 +1,47 @@
 package gafat.domain;
 
-import java.io.Serializable;
-import java.util.Date;
+import java.util.List;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
-import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.format.annotation.DateTimeFormat;
+
+
+@Entity
 
 public class Packages {
-
-	@NotNull
-	@NotEmpty
-	String serviceName;
-	@NotNull
-	@NotEmpty
-	String description;
-	String packageType;
-	String priceType;
-
-	public Packages() {
-
-	}
-
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
 	
-
-	public Packages(String serviceName, String description, String packageType,
-			String priceType) {
-		super();
-		this.serviceName = serviceName;
-		this.description = description;
-		this.packageType = packageType;
-		this.priceType = priceType;
-	}
-
-
-
-	public String getPriceType() {
-		return priceType;
-	}
-
-	public void setPriceType(String priceType) {
-		this.priceType = priceType;
-	}
-
+	@Column(name="PACKAGE_NAME")
+	private String packageName;
 	
+	@OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name="PACKAGE_ID")  
+    private List<ServiceTypes> serviceTypes;
 
-	public String getServiceName() {
-		return serviceName;
+	public String getPackageName() {
+		return packageName;
 	}
 
-
-
-	public void setServiceName(String serviceName) {
-		this.serviceName = serviceName;
+	public void setPackageName(String packageName) {
+		this.packageName = packageName;
 	}
 
-
-
-	public String getDescription() {
-		return description;
+	public List<ServiceTypes> getServiceTypes() {
+		return serviceTypes;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public String getPackageType() {
-		return packageType;
-	}
-
-	public void setPackageType(String packageType) {
-		this.packageType = packageType;
-	}
+	public void setServiceTypes(List<ServiceTypes> serviceTypes) {
+		this.serviceTypes = serviceTypes;
+	}	
 
 }
