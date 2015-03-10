@@ -13,7 +13,7 @@
 <div id="mainBody">
 <form:form modelAttribute="newReservation"  action= "addBook" method="post">
     <fieldset>
-        <legend>Reservation Page</legend>
+        <legend>Reservation</legend>
        
         <p>
             <label for="firstName"><spring:message code="client.firstName" /> </label>
