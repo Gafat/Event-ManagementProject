@@ -32,7 +32,7 @@ WeddingService weddingService;
 		states=weddingService.getStateNameList(country);
 		model.addAttribute("countrys",countrys);
 		model.addAttribute("states", states);
-		return "wedding";
+		return "Event";
 	}
 public String getSelectedCountry()
 {
