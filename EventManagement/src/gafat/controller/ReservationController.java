@@ -2,6 +2,9 @@ package gafat.controller;
 
 
 
+import java.util.HashMap;
+import java.util.List;
+
 import gafat.domain.Reservation;
 
 import org.springframework.stereotype.Controller;
@@ -19,8 +22,14 @@ public class ReservationController {
 
 public String addReservation( @ModelAttribute("newReservation")Reservation reservation, Model model)
  {
+   HashMap<String,String>paymentMethod = new HashMap<String,String>();
+
+   paymentMethod.put("visa", "Visa");
+   paymentMethod.put("masterCard", "MasterCard");
+   paymentMethod.put("americanExpress", "AmericanExpress");
+   model.addAttribute(paymentMethod);
    
-	return "ReservationForm";
+	return "paymentForm";
   }          
 
 }

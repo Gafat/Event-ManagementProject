@@ -1,5 +1,7 @@
 package gafat.domain;
 
+import java.util.HashMap;
+
 
 
 
@@ -19,6 +21,28 @@ public class Reservation {
 	private String city;
 	private String state;
 	private String zip;
+	
+	//billing Address
+    private String bfirstName;
+	
+	private String blastName;
+	
+	private String btel;
+	private String bemail;
+	
+	private String bstreet;
+	private String bcity;
+	private String bstate;
+	private String bzip;
+	
+	private boolean sameAddress=true;
+
+	
+	//payment info
+	private String paymentMethod ;
+	private String cardNumber;
+	private String expDate;
+	private String ccv;
 	
 	public String getFirstName() { 
 		return firstName;
@@ -72,6 +96,85 @@ public class Reservation {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public String getCardNumber() {
+		return cardNumber;
+	}
+	public void setCardNumber(String cardNumber) {
+		this.cardNumber = cardNumber;
+	}
+	public String getExpDate() {
+		return expDate;
+	}
+	public void setExpDate(String expDate) {
+		this.expDate = expDate;
+	}
+	public String getCcv() {
+		return ccv;
+	}
+	public void setCcv(String ccv) {
+		this.ccv = ccv;
+	}
+	public String getPaymentMethod() {
+		return paymentMethod;
+	}
+	public void setPaymentMethod(String paymentMethod) {
+		this.paymentMethod = paymentMethod;
+	}
+	public String getBfirstName() {
+		return bfirstName;
+	}
+	public void setBfirstName(String bfirstName) {
+		this.bfirstName = bfirstName;
+	}
+	public String getBlastName() {
+		return blastName;
+	}
+	public void setBlastName(String blastName) {
+		this.blastName = blastName;
+	}
+	public String getBtel() {
+		return btel;
+	}
+	public void setBtel(String btel) {
+		this.btel = btel;
+	}
+	public String getBemail() {
+		return bemail;
+	}
+	public void setBemail(String bemail) {
+		this.bemail = bemail;
+	}
+	public String getBstreet() {
+		return bstreet;
+	}
+	public void setBstreet(String bstreet) {
+		this.bstreet = bstreet;
+	}
+	public String getBcity() {
+		return bcity;
+	}
+	public void setBcity(String bcity) {
+		this.bcity = bcity;
+	}
+	public String getBstate() {
+		return bstate;
+	}
+	public void setBstate(String bstate) {
+		this.bstate = bstate;
+	}
+	public String getBzip() {
+		return bzip;
+	}
+	public void setBzip(String bzip) {
+		this.bzip = bzip;
+	}
+	public boolean isSameAddress() {
+		return sameAddress;
+	}
+	public void setSameAddress(boolean sameAddress) {
+		this.sameAddress = sameAddress;
+	}
+	
 	
 	
 	
