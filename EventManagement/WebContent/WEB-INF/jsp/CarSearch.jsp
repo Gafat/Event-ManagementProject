@@ -30,11 +30,13 @@
   <form:form  modelAttribute="rentalSearch" action="searchCar">
   <fieldset>
   <legend>Pick up From  </legend>
-  <form:input path="searchState"  size="50" placeHolder="Airport , city or point of interset"/><br/><br/><br/>
-  <lable>pickup date  </lable><form:input path="pickUpDate"  class="datepicker"/><lable>   pickup time   </lable><form:input path="pickUpTime"/>
+  <form:input path="searchState"  size="50" placeHolder="Search by State"/><br/><form:errors path="searchState" cssStyle="color:red;" /><br/>
   
-  <lable>DropOff date  </lable><form:input path="DropOffDate" class="datepicker"/> <lable>  DropOff time  </lable><form:input path="DropOffTime"/>
+  <lable>pickup date  </lable><form:input path="pickUpDate"  class="datepicker"/>   <lable>   pickup time   </lable><form:input path="pickUpTime"/> 
+ <form:errors path="pickUpDate" cssStyle="color:red;" />         <form:errors path="pickUpTime" cssStyle="color:red;" />
   
+  <lable>DropOff date  </lable><form:input path="DropOffDate" class="datepicker"/>    <lable>  DropOff time  </lable><form:input path="DropOffTime"/>
+   <form:errors path="DropOffDate" cssStyle="color:red;" />                            <form:errors path="DropOffTime" cssStyle="color:red;" />
   
   <input type="submit" Value="search" />
   </fieldset>

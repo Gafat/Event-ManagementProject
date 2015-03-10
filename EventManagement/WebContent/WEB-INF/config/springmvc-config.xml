@@ -13,6 +13,7 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
         
     <context:component-scan base-package="gafat"/>
+    	<context:component-scan base-package="gafat.formatter" />
     <mvc:annotation-driven validator="validator" conversion-service="conversionService" />
     
      
@@ -43,7 +44,7 @@
 		<property name="formatters">
 			<set>
 				<bean class="gafat.formatter.DateFormatter">
-					<constructor-arg type="java.lang.String" value="MM-dd-yyyy" />
+					<constructor-arg type="java.lang.String" value="MM/dd/yyyy" />
 				</bean>
 			</set>
 		</property>

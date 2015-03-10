@@ -18,15 +18,19 @@
 <tr>
 <td>img</td>
  <td>
+ Model :
+ <c:out value="${car.model}"></c:out><br />
+ Unit Price : 
+ <c:out value="${car.price}"></c:out> <br />
  
- <c:out value="${car.model}"></c:out>
- <c:out value="${car.price}"></c:out>
- <c:out value="${car.numOfPeople}"></c:out>
+ Seats:
+ <c:out value="${car.numOfPeople}"></c:out> <br />
+ Bags:
  <c:out value="${car.numOfBags}"></c:out>
  
 
 </td>
- <td><a href="">book</a></td>
+ <td>Total cost : ${car.totalCost } <br /><a href="">book</a></td>
 </tr>
 </c:forEach>
 </table>

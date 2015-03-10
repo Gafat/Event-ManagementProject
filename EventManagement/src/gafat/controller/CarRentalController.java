@@ -1,6 +1,9 @@
 package gafat.controller;
 
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.validation.Valid;
 
@@ -10,32 +13,43 @@ import gafat.service.ServiceImplementation;
 import gafat.service.ServiceInterface;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller 
 public class CarRentalController {
-	@Autowired
-	ServiceInterface service;
-	@RequestMapping({"/searchCar"})
+@Autowired
+ServiceInterface service;
+	//ServiceImplementation service=new ServiceImplementation();
+	@RequestMapping({"/","/searchCar"})
 	public String carSearchForm( @ModelAttribute("rentalSearch") CarRentalSearch search)
 	{
 		return "CarSearch";
 			
 	}
 	@RequestMapping(value={"/searchCar"}, method=RequestMethod.POST)
-	public String SearchCar( @ModelAttribute("rentalSearch") CarRentalSearch search,Model model)
+	public String SearchCar(@Valid  @ModelAttribute("rentalSearch") CarRentalSearch search,BindingResult result,Model model)
 	{
-		System.out.println(search.getSearchState());
-	ArrayList<Car> listOfCars=service.searchCars(search.getSearchState());
-		//Car car=
-//		listOfCars.add(car);
-//		System.out.println(car.getState());
+		if(result.hasErrors())
+		{
+			System.out.println("hello");
+			return "CarSearch";
+		}
+		//double totalCost=service.CalculateTotalCost(search.getPickUpDate(), search.getDropOffDate());
+		//System.out.println(search.getSearchState());
+		//long numofDays=search.getDropOffDate().getTime()-search.getPickUpDate().getTime();
+//		System.out.println(numofDays / (1000 * 60 * 60 * 24));
+//		System.out.println();
+	ArrayList<Car> listOfCars=service.findAllCars(search.getSearchState(),search.getPickUpDate(),search.getDropOffDate());
+   //model.addAttribute("totalCost",totalCost);
   	model.addAttribute("listOfCars", listOfCars);
 		return "carForRent";
 			
@@ -56,12 +70,19 @@ public class CarRentalController {
 		}
 	
 	
-		service.addCar(car);
+		service.saveCar(car);
 		model.addAttribute("car",car);
-		for(Car c:service.getAllCars())
-	     System.out.println(c.getCompanyName());
+		
 		return "carDetail";
 			
 	}
+	
+	@InitBinder
+	  public void initBinder(WebDataBinder binder) {
+//	    SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+//	    dateFormat.setLenient(false);
+//	    binder.registerCustomEditor(Date.class,
+//	        new CustomDateEditor(dateFormat, false));
+  }
 
 }

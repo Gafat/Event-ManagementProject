@@ -1,11 +1,21 @@
 package gafat.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.Min;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
-
-public class Car {
+@Entity
+public class Car  {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "CAR_ID")
+	private long id;
+	
 	@NotEmpty
 	private String companyName;
    @Min(1)
@@ -24,6 +34,8 @@ public class Car {
 	private String state;
 	@NotEmpty
 	private String city;
+	private double totalCost;
+	
 //	public Car(double price, String type , int numOfPeople,int numOfBags,String model,int numOfCars,String state)
 //	{
 //		this.price=price;
@@ -40,6 +52,14 @@ public class Car {
 		
 	}
 	
+	public double getTotalCost() {
+		return totalCost;
+	}
+
+	public void setTotalCost(double totalCost) {
+		this.totalCost = totalCost;
+	}
+
 	public int getNumOfCars() {
 		return numOfCars;
 	}

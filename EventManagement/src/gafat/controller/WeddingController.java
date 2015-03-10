@@ -23,7 +23,7 @@ public class WeddingController {
 	
 @Autowired
 WeddingService weddingService;
-	@RequestMapping(value = {"/","/wedding"})
+	@RequestMapping(value = {"/wedding"})
     public String weddingEventRegistration(Model model) {
 		List<String> countrys=new ArrayList();
 		List<String> states=new ArrayList();

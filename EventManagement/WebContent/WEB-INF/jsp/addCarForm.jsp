@@ -27,9 +27,9 @@
   <form:select path="type">
   <form:option value="compact"> Compact</form:option>
   <form:option value="mid size"> Mid Size</form:option>
-  <form:option value="compact"> Economy</form:option>
-  <form:option value="compact"> Standard</form:option>
-  <form:option value="compact"> Full Size</form:option>
+  <form:option value="Economy"> Economy</form:option>
+  <form:option value="Standard"> Standard</form:option>
+  <form:option value="Full Size"> Full Size</form:option>
   </form:select>
   
   <lable><spring:message code="car.numOfSeat" /> </lable><form:input path="numOfPeople" />

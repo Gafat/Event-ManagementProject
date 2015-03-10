@@ -1,68 +1,63 @@
 package gafat.domain;
 
-import java.sql.Date;
+
+
+import java.util.Date;
+
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 public class CarRentalSearch {
+	@NotEmpty
 private String searchState;
+@NotNull
 private Date pickUpDate;
-private Date pickUpTime;
+@NotEmpty
+private String pickUpTime;
+@NotNull
 private Date dropOffDate;
-private Date dropOffTime;
+@NotEmpty
+private String dropOffTime;
 public String getSearchState() {
 	return searchState;
 }
 public void setSearchState(String searchState) {
 	this.searchState = searchState;
 }
-//public String getPickUpDate() {
-//	return pickUpDate;
-//}
-//public void setPickUpDate(String pickUpDate) {
-//	this.pickUpDate = pickUpDate;
-//}
-//public String getPickUpTime() {
-//	return pickUpTime;
-//}
-//public void setPickUpTime(String pickUpTime) {
-//	this.pickUpTime = pickUpTime;
-//}
-//public String getDropOffDate() {
-//	return dropOffDate;
-//}
-//public void setDropOffDate(String dropOffDate) {
-//	this.dropOffDate = dropOffDate;
-//}
-//public String getDropOffTime() {
-//	return dropOffTime;
-//}
-//public void setDropOffTime(String dropOffTime) {
-//	this.dropOffTime = dropOffTime;
-//}
 
+
+public String getPickUpTime() {
+	return pickUpTime;
+}
+public void setPickUpTime(String pickUpTime) {
+	this.pickUpTime = pickUpTime;
+}
+public String getDropOffTime() {
+	return dropOffTime;
+}
+public void setDropOffTime(String dropOffTime) {
+	this.dropOffTime = dropOffTime;
+}
 public Date getPickUpDate() {
 	return pickUpDate;
 }
 public void setPickUpDate(Date pickUpDate) {
 	this.pickUpDate = pickUpDate;
 }
-public Date getPickUpTime() {
-	return pickUpTime;
-}
-public void setPickUpTime(Date pickUpTime) {
-	this.pickUpTime = pickUpTime;
-}
+
 public Date getDropOffDate() {
 	return dropOffDate;
 }
 public void setDropOffDate(Date dropOffDate) {
 	this.dropOffDate = dropOffDate;
 }
-public Date getDropOffTime() {
-	return dropOffTime;
-}
-public void setDropOffTime(Date dropOffTime) {
-	this.dropOffTime = dropOffTime;
-}
+//public Date getDropOffTime() {
+//	return dropOffTime;
+//}
+//public void setDropOffTime(Date dropOffTime) {
+//	this.dropOffTime = dropOffTime;
+//}
 
 
 }

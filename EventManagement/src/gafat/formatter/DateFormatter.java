@@ -14,6 +14,7 @@ public class DateFormatter implements Formatter<Date> {
 
     public DateFormatter(String datePattern) {
         this.datePattern = datePattern;
+        System.out.println(this.datePattern);
         dateFormat = new SimpleDateFormat(datePattern);
         dateFormat.setLenient(false);
     }
@@ -29,6 +30,7 @@ public class DateFormatter implements Formatter<Date> {
         System.out.println("DateFormatter PARSE");
        try {
             return dateFormat.parse(s);
+            
         } catch (ParseException e) {
             // the error message will be displayed when using <form:errors>
             throw new IllegalArgumentException(
