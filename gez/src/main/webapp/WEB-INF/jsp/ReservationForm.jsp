@@ -11,7 +11,7 @@
 <body>
 
 <div id="mainBody">
-<form:form modelAttribute="reservation"  action= "addReservation" method="post">
+<form:form modelAttribute="reservation"  action= "saveReservation" method="post">
     <fieldset>
         <legend>Reservation Page</legend>
        <p>
@@ -57,15 +57,17 @@
            <lable for="email">Email: </lable>
            <form:input path="email"/>
             <form:errors path="email" cssStyle="color : red;"/>
-           
+           <br/>
         </p>
         
       
         <p id="buttons">
                <form:button id="submit" path ="addReservation">Add Reservation</form:button>
-               <form:button id="submit" path ="memberLogin">Member Login</form:button>
+              <form:button  id="submit" path ="memberLogin">Member Login</form:button>
                <form:button id="submit" path ="registerNow">Register Now</form:button>
-           
+              
+               <p><a href="authenticationPage">  Member-Login</a> |
+               <a href="registerationForm">  Register-now</a></p><br/>
         </p>
         
         <p> Note: Members have a 10% discount and can rate the service</p>

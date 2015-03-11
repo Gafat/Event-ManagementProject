@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+    
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
@@ -10,13 +14,13 @@
 
 </head>
 <body>
-<div >
-<form:form modelAttribute="reservation"  action= "thankyoupage" method="POST">
+
+<form:form modelAttribute="reservation"  action= "saveRegisteration" method="POST">
     <fieldset>
-        <legend>Payment Page</legend>
+        <legend>Registration Page</legend>
        
-    <div class="personalInfo">
-   
+   <div class="PersonalInfo">
+    <div id="registration">
       <div id="label">
         <p> <label for="firstName"><spring:message code="client.firstName" /> </label> </p>
         <p> <label for="lastName"><spring:message code="client.lastName" /> </label>   </p>
@@ -27,7 +31,11 @@
         
         <p> <label for="tel">Tel: </label>       </p> 
        
-        <p>  <label for="email">Email: </label>   </p>
+        <p>  <label for="email">Email: </label>   </p><br/>
+        
+         <p> <label for="userName"><spring:message code="client.userName"  /> </label>       </p>
+        <p> <label for="password"  ><spring:message code="client.password"  /> </label>         </p>
+        
        </div>
       
         
@@ -39,42 +47,20 @@
           <p>  <form:input class="righter" path="state"/>        </p>
           <p>  <form:input class="righter" path="zip"/>       </p>
           <p>  <form:input class="righter"  path="tel"/>        </p> 
-          <p>  <form:input class="righter"  path="email"/>     </p>
+          <p>  <form:input class="righter"  path="email"/>     </p><br/>
+           <p>  <form:input class="righter"  path="userName"/>        </p> 
+          <p>  <form:input class="righter"  path="password"/>     </p>
         </div>
-     </div> 
-    
-  <div id="paymentInfo">
-    <div id="label">
-      Payment method :
       
-    
-   <p> Card Number: </p>
-   <p> Exp Date:</p>
-    <p>ccv :</p><br/>
-    <p>Your Total: </p> </br>
     </div>
-    <div id="input">
-      <p> <form:select path="paymentMethod" >
-               <form:option value="cardType" lable="CardType"/>
-               <form:option value="visa" > Visa</form:option>
-               <form:option value="masterCard"> masterCard</form:option>
-               <form:option value="americanExpress" label="AmericanExpress" selected="selected"/>
+ </div>
+    <div id="authBtn"> <form:button >Register</form:button></div>
+        <p><a id="home" href="ReservationForm"> Cancel</a>
+    
+    
        
-             
-           </form:select> 
-       </p>
-       <p> <form:input path="cardNumber"/></p>
-      <p> <form:input path="expDate"/></p>
-      <p> <form:input path="ccv"/></p><br/>
-      <p> <form:input path="total"/></p>
-      <p> <form:button id="confirmbtn"> Confirm Payment</form:button></p></br>
-    
-    </div>
-    </div>
-    <div id="checkbox"><form:checkbox path="sameAddress"/>
-       Check here if billing address is same as home address </div>
+     
     </fieldset>
 </form:form>
-</div>
 </body>
 </html>
