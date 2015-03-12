@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
-   
+       <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
    
@@ -13,9 +13,37 @@
 <title>car rental</title>
 </head>
 <body>
-<div>
-  <h1>${car.companyName } Car Successfully added </h1>
+<div class="global">
+<form:form modleAttribute="car" action="addCar" method="get">
+<h1>successfully added</h1>
+<p>
+  Company Name : ${car.companyName } 
+</p>
+<p>
+  model : ${car.model }
+</p>
+  price : $ ${car.price }
+  <p>
+  ${car.type }
+  </p>
+  <p>
+  Number of Seat : ${car.numOfPeople }
+  </p>
+  <p>
+  Number of Bags : ${car.numOfBags }
+  </p>
+  <p>
+  State : ${car.state }
+  </p>
+  <p>
+  City : ${car.city }
+  </p>
+  
+ <button>Add More Cars </button> 
+ <spring:url value="/delete" var="delete"></spring:url>
+ <a href="${delete}">Delete </a></form:form>
  
+
 </div>
 </body>
 </html>

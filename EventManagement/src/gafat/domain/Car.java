@@ -5,10 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import javax.validation.constraints.Min;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.support.MultipartFilter;
 @Entity
 public class Car  {
 	@Id
@@ -21,7 +24,7 @@ public class Car  {
    @Min(1)
 	private double price;
     
-   	private String Type; // compact , mid size, economy, standard, full size
+   	private String type; // compact , mid size, economy, standard, full size
    	@Min(1)
 	private int numOfPeople;
    	@Min(1)
@@ -34,7 +37,10 @@ public class Car  {
 	private String state;
 	@NotEmpty
 	private String city;
+	@Transient
 	private double totalCost;
+	@Transient
+	private MultipartFile image;
 	
 //	public Car(double price, String type , int numOfPeople,int numOfBags,String model,int numOfCars,String state)
 //	{
@@ -52,6 +58,14 @@ public class Car  {
 		
 	}
 	
+	public MultipartFile getImage() {
+		return image;
+	}
+
+	public void setImage(MultipartFile image) {
+		this.image = image;
+	}
+
 	public double getTotalCost() {
 		return totalCost;
 	}
@@ -91,10 +105,10 @@ public class Car  {
 		this.price = price;
 	}
 	public String getType() {
-		return Type;
+		return type;
 	}
 	public void setType(String type) {
-		Type = type;
+		type = type;
 	}
 	public int getNumOfPeople() {
 		return numOfPeople;

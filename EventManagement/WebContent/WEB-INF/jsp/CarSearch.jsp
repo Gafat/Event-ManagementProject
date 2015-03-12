@@ -26,17 +26,17 @@
 <div>
     <h1> Search for Rental Car</h1>
     <pre>
- <div id="main">
+ <div id="global">
   <form:form  modelAttribute="rentalSearch" action="searchCar">
   <fieldset>
   <legend>Pick up From  </legend>
-  <form:input path="searchState"  size="50" placeHolder="Search by State"/><br/><form:errors path="searchState" cssStyle="color:red;" /><br/>
+  <form:input path="searchState"  size="50" placeHolder="Search Car by State"/><br/><form:errors path="searchState" cssStyle="color:red;" /><br/>
   
-  <lable>pickup date  </lable><form:input path="pickUpDate"  class="datepicker"/>   <lable>   pickup time   </lable><form:input path="pickUpTime"/> 
- <form:errors path="pickUpDate" cssStyle="color:red;" />         <form:errors path="pickUpTime" cssStyle="color:red;" />
+  <lable>pickup date  </lable><form:input path="pickUpDate"  class="datepicker"/>   <lable>   pickup time   </lable><form:select path="DropOffTime" ><option value="Morning">Morning</option ><option value="noon">Noon</option><option value="night">Night</option></form:select> 
+ <form:errors path="pickUpDate" cssStyle="color:red;" />         
   
-  <lable>DropOff date  </lable><form:input path="DropOffDate" class="datepicker"/>    <lable>  DropOff time  </lable><form:input path="DropOffTime"/>
-   <form:errors path="DropOffDate" cssStyle="color:red;" />                            <form:errors path="DropOffTime" cssStyle="color:red;" />
+  <lable>DropOff date  </lable><form:input path="DropOffDate" class="datepicker"/>    <lable>  DropOff time  </lable><form:select path="DropOffTime" ><option value="Morning">Morning</option ><option value="noon">Noon</option><option value="night">Night</option></form:select>
+   <form:errors path="DropOffDate" cssStyle="color:red;" />                            
   
   <input type="submit" Value="search" />
   </fieldset>

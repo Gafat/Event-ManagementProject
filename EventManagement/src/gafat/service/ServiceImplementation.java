@@ -59,7 +59,25 @@ public class ServiceImplementation  implements ServiceInterface{
 		
 		return (ArrayList<Car>) carsRepository.findAll();
 	}
-
+public ArrayList<Car> findAllCarsByCompany(String companyName) {
+	
+	ArrayList<Car> listOfCars=new ArrayList<Car>();
+	for(Car car :carsRepository.findAll())
+	{
+	  if(car.getCompanyName().equals(companyName))	
+	  {
+		 
+		  listOfCars.add(car);
+	  }
+		  
+	
+	}
+		
+		return listOfCars;
+	
+		
+		
+	}
 	@Override
 	public List<String> getStateNameList(String country) {
 		// TODO Auto-generated method stub

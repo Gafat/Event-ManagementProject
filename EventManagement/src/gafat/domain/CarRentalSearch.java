@@ -13,11 +13,11 @@ public class CarRentalSearch {
 private String searchState;
 @NotNull
 private Date pickUpDate;
-@NotEmpty
+
 private String pickUpTime;
 @NotNull
 private Date dropOffDate;
-@NotEmpty
+
 private String dropOffTime;
 public String getSearchState() {
 	return searchState;

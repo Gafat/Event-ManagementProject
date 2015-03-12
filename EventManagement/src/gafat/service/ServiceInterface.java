@@ -12,6 +12,7 @@ public interface ServiceInterface {
 	public List<String> getStateNameList(String country);
 	public double CalculateTotalCost(Date pickup,Date dropOff,double price);
 	public ArrayList<Car> getAllCars();
+	public ArrayList<Car> findAllCarsByCompany(String companyName);
 	public ArrayList<Car> listOfCars=new ArrayList<Car>();
 
 }
