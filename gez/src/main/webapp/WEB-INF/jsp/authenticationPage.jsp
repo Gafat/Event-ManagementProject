@@ -15,7 +15,7 @@
 
 <form:form modelAttribute="reservation"  action="authenticate" method="POST">
  <fieldset>
-    <legend>Authentication Page</legend>
+    <legend><spring:message code="Authentication-Page"/></legend>
      <div class="authPersonalInfo">
    
       <div id="label">
@@ -30,8 +30,8 @@
           <p>  <form:input class="righter"  id="lastName" path="password"/>   </p>
          
         </div>
-        <div id="authBtn"> <form:button >Login</form:button></div>
-        <p><a id="home" href="ReservationForm"> Home</a>
+        <div id="authBtn"> <form:button ><spring:message code="Login"/></form:button></div>
+        <p><a id="home" href="ReservationForm"><spring:message code="Home"/></a>
      </div> 
  </fieldset>        
 </form:form>

@@ -41,7 +41,7 @@ Registration also will allow you to rate your service provider.
      </div>
 
 
-        <form:button >Go to Home</form:button>
+        <form:button ><spring:message code="Home"/></form:button>
  </fieldset>       
 </form:form>
 </body>

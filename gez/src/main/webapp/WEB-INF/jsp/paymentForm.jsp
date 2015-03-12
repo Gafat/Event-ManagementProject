@@ -25,9 +25,9 @@
         <p> <label for="state"><spring:message code="client.state"  /> </label>       </p>
         <p> <label for="zip"  ><spring:message code="client.zip"  /> </label>         </p>
         
-        <p> <label for="tel">Tel: </label>       </p> 
-       
-        <p>  <label for="email">Email: </label>   </p>
+       <p> <lable for="tel"><spring:message code="client.tel" /></lable></p>
+                  
+        <p>  <lable for="email"><spring:message code="client.email"/> </lable>   </p><br/>
        </div>
       
         
@@ -48,10 +48,10 @@
       Payment method :
       
     
-   <p> Card Number: </p>
-   <p> Exp Date:</p>
-    <p>ccv :</p><br/>
-    <p>Your Total: </p> </br>
+   <p><spring:message code="CardNumber"/> </p>
+   <p> <spring:message code="ExpDate"/></p>
+    <p><spring:message code="ccv"/> </p><br/>
+    <p><spring:message code="YourTotal"/> </p> </br>
     </div>
     <div id="input">
       <p> <form:select path="paymentMethod" >
@@ -67,12 +67,12 @@
       <p> <form:input path="expDate"/></p>
       <p> <form:input path="ccv"/></p><br/>
       <p> <form:input path="total"/></p>
-      <p> <form:button id="confirmbtn"> Confirm Payment</form:button></p></br>
+      <p> <form:button id="confirmbtn"> <spring:message code="Confirm-Payment"/></form:button></p></br>
     
     </div>
     </div>
     <div id="checkbox"><form:checkbox path="sameAddress"/>
-       Check here if billing address is same as home address </div>
+     <spring:message code="billingaddress"/> </div>
     </fieldset>
 </form:form>
 </div>

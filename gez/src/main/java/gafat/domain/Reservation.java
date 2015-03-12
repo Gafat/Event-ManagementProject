@@ -18,9 +18,9 @@ public class Reservation {
 	
 	@NotEmpty(message="{String.empty}")
 	private String lastName;
-	
+	@Pattern(regexp="^\\d{3}-\\d{4}(-\\d{4})?$",message="{Pattern.tel}")
 	private String tel;
-	
+	@Pattern(regexp="^(a-z,A-Z)\\@(a-z)+.((a-z){3})?$",message="{Pattern.email}")
 	private String email;
 	
 	

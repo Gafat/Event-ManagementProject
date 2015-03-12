@@ -11,68 +11,80 @@
 <body>
 
 <div id="mainBody">
+<fieldset>
+  <legend><spring:message code="Reservation-Page"/></legend>
+
 <form:form modelAttribute="reservation"  action= "saveReservation" method="post">
-    <fieldset>
-        <legend>Reservation Page</legend>
-       <p>
-  		     <form:errors path="*" cssStyle="color : red;" /> 
+                 <p>please fill the red marked spaces</p>
+  		  <p>   <form:errors path="*" cssStyle="color : red;" /> 
         </p>
         <p>
             <label for="firstName"><spring:message code="client.firstName" /> </label>
-            <form:input path="firstName"/>
-            <form:errors path="firstName" cssStyle="color : red;"/>
+            <form:input path="firstName" cssErrorClass="error"/>
+          
            
         </p>
         <p>
              <label for="lastName"><spring:message code="client.lastName" /> </label>
-            <form:input id="lastName" path="lastName"/>
-             <form:errors path="lastName" cssStyle="color : red;"/>
+            <form:input id="lastName" path="lastName"  cssErrorClass="error"/>
+             
         </p>
           <p id="address">
           
            <label for="street"><spring:message code="client.street" /> </label>
-           <form:input path="street"/>
-            <form:errors path="street" cssStyle="color : red;"/>
+           <form:input path="street" cssErrorClass="error"/>
+            
           <label for="city"><spring:message code="client.city" /> </label>
-          <form:input path="city"/> 
-           <form:errors path="city" cssStyle="color : red;"/>
+          <form:input path="city" cssErrorClass="error"/> 
+          
           <label for="state"><spring:message code="client.state"  /> </label>
-          <form:input path="state"/><br/>
-           <form:errors path="state" cssStyle="color : red;"/>
+          <form:input path="state" cssErrorClass="error"/><br/>
+          
           
          <label for="zip"  id="zip"><spring:message code="client.zip"  /> </label>
-          <form:input id="zipI" path="zip"/>
-           <form:errors path="zip" cssStyle="color : red;"/>
+          <form:input id="zipI" path="zip" cssErrorClass="error"/>
+        
          
         </p>
         
         <p id = "bottom">
            
-           <lable for="tel">Tel: </lable>
-           <form:input path="tel"/>
-            <form:errors path="tel" cssStyle="color : red;"/>
-           
+           <lable for="tel"><spring:message code="client.tel" /></lable>
+           <form:input path="tel" cssErrorClass="error"/>
+            
        
-       
-           <lable for="email">Email: </lable>
-           <form:input path="email"/>
-            <form:errors path="email" cssStyle="color : red;"/>
+           <lable for="email"><spring:message code="client.email"/> </lable>
+           <form:input path="email" cssErrorClass="error"/>
+          
            <br/>
         </p>
         
       
-        <p id="buttons">
-               <form:button id="submit" path ="addReservation">Add Reservation</form:button>
-              <form:button  id="submit" path ="memberLogin">Member Login</form:button>
-               <form:button id="submit" path ="registerNow">Register Now</form:button>
+        <p class="buttons">
+               <form:button id="submit" path ="addReservation"><spring:message code="Add-Reservation"/></form:button>
+             
               
-               <p><a href="authenticationPage">  Member-Login</a> |
-               <a href="registerationForm">  Register-now</a></p><br/>
+               <p id="btnLink"><a href="authenticationPage"><spring:message code="Member-Login"/></a> |
+               <a href="registerationForm"> <spring:message code="Register-Now"/></a>
+               </p><br/>
         </p>
         
-        <p> Note: Members have a 10% discount and can rate the service</p>
-    </fieldset>
+        <p><spring:message code="discount"/></p> <p> Language: <a href="ReservationForm?language=en_US"> English</a> | <a href="ReservationForm?language=es">Spanish</p>
+    
 </form:form>
+  
+              <form:form modelAttribute="reservation" action="authenticationPage" method="GET">
+              <p class="buttons2">
+                <form:button  id="submit" path ="memberLogin"><spring:message code="Member-Login"/></form:button>
+              </p>
+              </form:form>
+               <form:form modelAttribute="reservation" action="registerationForm" method="GET">
+              <p class="buttons3">
+                <form:button  id="submit" path ="registerNow"> <spring:message code="Register-Now"/></form:button>
+              </p>
+              </form:form>
+       
+  </fieldset>      
 </div>
 </body>
 </html>

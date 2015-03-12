@@ -59,15 +59,31 @@ p #address{
 }
 
 
-#buttons {position:absolute;
+.buttons {position:absolute;
     right:40px;
     top:0px;
     width:150px;
   
     
 }
+.buttons2 {position:absolute;
+   //float:right;
+    right:40px;
+    top:100px;
+    width:150px;
+  
+    
+}
+.buttons3 {position:absolute;
+   //float:right;
+    right:40px;
+    top:50px;
+    width:150px;
+  
+    
+}
 
-#buttons #submit{
+ #submit{
 	font-size:16px;
 	font-weight:bold;
     margin: 5px;
@@ -206,3 +222,17 @@ float:left;
 	  background-color:lightblue;
 	 
 	}
+	
+	
+#btnLink {
+	margin-top:50px;
+	text-align:center;
+	Pattern.zipcode
+	
+}
+
+input.error{
+	color :black;
+	background-color:lightyellow;
+	border:4px red solid;
+}

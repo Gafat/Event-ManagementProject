@@ -29,9 +29,9 @@
         <p> <label for="state"><spring:message code="client.state"  /> </label>       </p>
         <p> <label for="zip"  ><spring:message code="client.zip"  /> </label>         </p>
         
-        <p> <label for="tel">Tel: </label>       </p> 
-       
-        <p>  <label for="email">Email: </label>   </p><br/>
+         <p> <lable for="tel"><spring:message code="client.tel" /></lable></p>
+                  
+        <p>  <lable for="email"><spring:message code="client.email"/> </lable>   </p><br/>
         
          <p> <label for="userName"><spring:message code="client.userName"  /> </label>       </p>
         <p> <label for="password"  ><spring:message code="client.password"  /> </label>         </p>
@@ -54,8 +54,8 @@
       
     </div>
  </div>
-    <div id="authBtn"> <form:button >Register</form:button></div>
-        <p><a id="home" href="ReservationForm"> Cancel</a>
+    <div id="authBtn"> <form:button ><spring:message code="Register"/></form:button></div>
+        <p><a id="home" href="ReservationForm"> <spring:message code="Cancel"/></a>
     
     
        

@@ -7,6 +7,7 @@ import gafat.service.ReservationService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -67,9 +68,10 @@ public String authenticationPage(@ModelAttribute("reservation") Reservation rese
 
 @RequestMapping(value={"/authenticate"}, method=RequestMethod.POST)
 
-public String authenticate(@ModelAttribute("reservation") Reservation reservation)
+public String authenticate(@ModelAttribute("reservation") Reservation reservation ,Model model)
     {reservation = reservationService.authenticate(reservation);
-	  if(reservation!=null){ return "ReservationForm";}
+	  if(reservation!=null){ model.addAttribute(reservation);return "ReservationForm";}
+	  
 	  return "authenticationPage";
     }
 
