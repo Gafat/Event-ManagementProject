@@ -1,17 +1,21 @@
 package gafat.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import gafat.domain.Reservation;
+import gafat.exception.UserNotFoundException;
 import gafat.service.ReservationService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ReservationController {
@@ -68,11 +72,13 @@ public String authenticationPage(@ModelAttribute("reservation") Reservation rese
 
 @RequestMapping(value={"/authenticate"}, method=RequestMethod.POST)
 
-public String authenticate(@ModelAttribute("reservation") Reservation reservation ,Model model)
-    {reservation = reservationService.authenticate(reservation);
+public String authenticate( @ModelAttribute("reservation") Reservation reservation ,Model model)
+    {
+	     //if(result.hasErrors()){ System.out.println("validatin Failed..."); return "registerationForm"; }	   
+	     reservation = reservationService.authenticate(reservation);
 	  if(reservation!=null){ model.addAttribute(reservation);return "ReservationForm";}
-	  
-	  return "authenticationPage";
+	  else throw new UserNotFoundException();
+	  //return "authenticationPage";
     }
 
 @RequestMapping(value={"/registerationForm"}, method=RequestMethod.GET)
@@ -91,4 +97,15 @@ public String saveRegisteration(@Valid @ModelAttribute("reservation") Reservatio
 }
 
 
+/*
+@ExceptionHandler(value=UserNotFoundException.class)	
+public ModelAndView exhandler(HttpServletRequest request, UserNotFoundException e)
+{  ModelAndView mav = new ModelAndView();
+   mav.addObject("exceptionMsg", e.getMessage());
+ mav.setViewName("UserNotFound");
+ return mav;
+	  
+	  
+}
+*/
 }
